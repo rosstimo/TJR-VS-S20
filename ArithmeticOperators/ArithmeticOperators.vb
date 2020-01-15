@@ -1,4 +1,5 @@
-﻿Public Module ArithmeticOperators
+﻿
+Public Module ArithmeticOperators
 
     Public Sub Main()
 
