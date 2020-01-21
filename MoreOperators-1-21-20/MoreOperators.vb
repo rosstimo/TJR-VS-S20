@@ -14,7 +14,7 @@ Module MoreOperators
         userMessage = Console.ReadLine()
         Console.WriteLine("You entered " & Chr(34) & userMessage & Chr(34) & " Good job!")
         Console.ReadLine()
-
+        'comment
     End Sub
 
 End Module
