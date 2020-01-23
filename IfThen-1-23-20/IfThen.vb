@@ -6,7 +6,7 @@
         Dim secondNumber As Integer
 
         firstNumber = 5
-        secondNumber = 5
+        secondNumber = 10
 
         If firstNumber > secondNumber Then
             Console.WriteLine("First number is bigger...")
@@ -14,7 +14,10 @@
             Console.WriteLine("Second number is bigger...")
         ElseIf firstNumber = secondNumber Then
             Console.WriteLine("The numbers are equal")
-        ElseIf firstNumber <= secondNumber Then
+        End If
+
+
+        If firstNumber <= secondNumber Then
             Console.WriteLine("First number is smaller or equal")
         ElseIf firstNumber >= secondNumber Then
             Console.WriteLine("First number is bigger or equal")
@@ -23,6 +26,7 @@
         Else
             Console.WriteLine("Some other thing???")
         End If
+
         Console.ReadLine()
 
     End Sub
