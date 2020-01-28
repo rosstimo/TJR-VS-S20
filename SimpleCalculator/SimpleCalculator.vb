@@ -26,12 +26,15 @@
             Catch ex As Exception
                 Console.WriteLine("Please enter a whole number")
                 'Console.WriteLine(ex.Message.ToString)
+                'Console.WriteLine(ex.ToString)
             End Try
         ElseIf userChoice = "2" Then
             Try
                 Console.WriteLine(CInt(firstNumber) * CInt(secondNumber))
-            Catch ex As Exception
+            Catch ex As InvalidCastException
                 Console.WriteLine("Please enter a whole number")
+            Catch ex As Exception
+                Console.WriteLine("You broke it")
             End Try
         Else
             Console.WriteLine("Invalid Selection")
