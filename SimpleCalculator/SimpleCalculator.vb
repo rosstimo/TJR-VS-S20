@@ -1,4 +1,15 @@
-﻿Module SimpleCalculator
+﻿'Tim Rossiter
+'RCET0265
+'Spring 2020
+'Simple Calculator Example Program
+'https://github.com/rosstimo/TJR-VS-S20.git
+
+Option Explicit On
+Option Strict On
+Option Compare Binary
+
+
+Module SimpleCalculator
 
     Sub Main()
         Dim firstNumber As String
