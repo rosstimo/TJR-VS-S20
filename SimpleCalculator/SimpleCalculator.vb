@@ -6,55 +6,92 @@
 
 Option Explicit On
 Option Strict On
-Option Compare Binary
+Option Compare Text
 
+'Refactor for a better user experience
 
 Module SimpleCalculator
 
     Sub Main()
-        Dim firstNumber As String
-        Dim secondNumber As String
+        Dim firstNumber As Integer
+        Dim secondNumber As Integer
         Dim userChoice As String
+        Dim quitProgram As Boolean
+        Dim promtUser As Boolean
 
-        'prompt user for two numbers
-        Console.WriteLine("Please enter a number...")
-        firstNumber = Console.ReadLine()
-        Console.WriteLine("Please enter a 2nd number...")
-        secondNumber = Console.ReadLine()
+        promtUser = True
+        quitProgram = False
 
-        'prompt user for sum or product choice
+        Do While quitProgram = False
 
-        'perform proper operation
-        Console.WriteLine("Please Choose an Option")
-        Console.WriteLine("1. Add")
-        Console.WriteLine("2. Multiply")
-        userChoice = Console.ReadLine()
+            'prompt user for two numbers
 
-        'Determine the user's choice
-        If userChoice = "1" Then
+
+            Console.WriteLine("Please enter a number...")
+            Do While promtUser = True
+                Try
+                    firstNumber = CInt(Console.ReadLine())
+                    promtUser = False
+                Catch ex As Exception
+                    Console.WriteLine("Please enter a whole number")
+                    promtUser = True
+                End Try
+            Loop
+
+            Console.WriteLine("Please enter a 2nd number...")
             Try
-                Console.WriteLine(CInt(firstNumber) + CInt(secondNumber))
+                secondNumber = CInt(Console.ReadLine())
             Catch ex As Exception
                 Console.WriteLine("Please enter a whole number")
-                'Console.WriteLine(ex.Message.ToString)
-                'Console.WriteLine(ex.ToString)
             End Try
-        ElseIf userChoice = "2" Then
-            Try
-                Console.WriteLine(CInt(firstNumber) * CInt(secondNumber))
-            Catch ex As InvalidCastException
-                Console.WriteLine("Please enter a whole number")
-            Catch ex As Exception
-                Console.WriteLine("You broke it")
-            End Try
-        Else
-            Console.WriteLine("Invalid Selection")
-        End If
 
-        Console.WriteLine("Have a nice day...")
-        'display result prompt to end
-        Console.ReadLine()
+            'prompt user for sum or product choice
 
+            'perform proper operation
+            Console.WriteLine("Please Choose an Option")
+            Console.WriteLine("1. Add")
+            Console.WriteLine("2. Multiply")
+            userChoice = Console.ReadLine()
+
+            'Determine the user's choice
+            If userChoice = "1" Then
+
+                'Try
+                Console.WriteLine(firstNumber + secondNumber)
+                'Catch ex As InvalidCastException
+                '    Console.WriteLine("Please enter a whole number")
+                'Catch ex As Exception
+                '    Console.WriteLine("You broke it")
+                'End Try
+
+            ElseIf userChoice = "2" Then
+
+                'Try
+                Console.WriteLine(firstNumber * secondNumber)
+                'Catch ex As InvalidCastException
+                '    Console.WriteLine("Please enter a whole number")
+                'Catch ex As Exception
+                '    Console.WriteLine("You broke it")
+                'End Try
+
+            Else
+
+                Console.WriteLine("Invalid Selection")
+
+            End If
+
+            'display result prompt to end
+            Console.WriteLine("Have a nice day...")
+            Console.WriteLine("Press Enter To Run Again. Enter Q to quit.")
+
+            If Console.ReadLine() = "q" Then
+                quitProgram = True
+            Else
+                quitProgram = False
+            End If
+
+            Console.Clear()
+        Loop
     End Sub
 
 End Module
