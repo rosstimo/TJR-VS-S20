@@ -20,7 +20,11 @@ Module Module1
         'Console.WriteLine(myNumber)
 
         'doMath(7, 5, "Multiply")
-        ShowPattern(5)
+
+        'For i = 1 To 80 Step 20
+        ShowPattern(40, "Tim")
+        'Next
+
         Console.ReadLine()
     End Sub
 
@@ -42,7 +46,7 @@ Module Module1
         Return myNumber
     End Function
 
-    Sub doMath(firstNumber As Integer, secondNumber As Integer, operatorChoice As String)
+    Sub DoMath(firstNumber As Integer, secondNumber As Integer, operatorChoice As String)
         Dim result As Double
 
         If operatorChoice = "Add" Then
@@ -58,15 +62,22 @@ Module Module1
         Console.WriteLine(result)
     End Sub
 
-    Sub ShowPattern(length As Integer)
-        Dim character As String
+    Sub ShowPattern(length As Integer, character As String)
+        'Dim character As String
         Dim pattern As String
-
-        character = "*"
-        For index = 1 To length
+        Console.WriteLine(Len(character))
+        'character = "*"
+        pattern = ""
+        For index = 1 To length Step 1
             pattern &= character
             Console.WriteLine(pattern)
         Next
+
+        For index = length - 1 To 1 Step -1
+            pattern = Left(pattern, index * Len(character))
+            Console.WriteLine(pattern)
+        Next
+
     End Sub
 
 
