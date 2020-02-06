@@ -22,9 +22,9 @@ Module Module1
         'doMath(7, 5, "Multiply")
 
         'For i = 1 To 80 Step 20
-        ShowPattern(40, "Tim")
+        'ShowPattern(40, "Tim")
         'Next
-
+        playSound()
         Console.ReadLine()
     End Sub
 
@@ -80,6 +80,14 @@ Module Module1
 
     End Sub
 
-
+    Sub playSound()
+        Console.Beep(392, 500) 'G4'
+        Console.Beep(440, 500) 'A4'
+        Console.Beep(349, 750) 'F4'
+        Console.Beep(196, 750) 'G3'
+        Console.Beep(262, 900) 'C4'
+        Console.BackgroundColor = ConsoleColor.Blue
+        Console.WriteLine("Oh no, you broke it!")
+    End Sub
 
 End Module
