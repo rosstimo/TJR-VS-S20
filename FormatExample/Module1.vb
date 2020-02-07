@@ -37,7 +37,6 @@ Module Module1
             Next
             Console.WriteLine()
             'Console.WriteLine()
-
         Next
 
     End Sub
