@@ -21,6 +21,17 @@ Public Class FormControlsForm
             DisplayLabel.Text = NameTextBox.Text
         End If
 
+        If CheckBox2.Checked = True Then
+            MsgBox("Hello, Your Data is No Good!!!")
+        End If
+
+        If CheckBox3.Checked = True Then
+            UserPictureBox.Image = My.Resources.kitty12
+        Else
+            UserPictureBox.Image = Nothing
+        End If
+
+
     End Sub
 
     Private Sub FormControlsForm_Load(sender As Object, e As EventArgs) Handles Me.Load
