@@ -37,17 +37,17 @@ Partial Class ValidateUserDataForm
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(68, 134)
+        Me.TextBox2.Location = New System.Drawing.Point(68, 87)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(204, 26)
-        Me.TextBox2.TabIndex = 2
+        Me.TextBox2.TabIndex = 1
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(68, 90)
+        Me.TextBox3.Location = New System.Drawing.Point(68, 129)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(204, 26)
-        Me.TextBox3.TabIndex = 1
+        Me.TextBox3.TabIndex = 2
         '
         'ValidateButton
         '
