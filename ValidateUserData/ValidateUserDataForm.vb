@@ -71,6 +71,23 @@
         Return status
     End Function
 
+    Function RunningTotal(currentValue As Integer) As Integer
+        Static total As Integer
 
+        total += currentValue
 
+        Return total
+    End Function
+
+    Private Sub TotalButton_Click(sender As Object, e As EventArgs) Handles TotalButton.Click
+        Dim tempNumber As Integer
+        Const VALUE As Integer = 5
+        'Const VALUE = 5I
+
+        For i = 1 To 10
+            tempNumber = RunningTotal(VALUE)
+        Next
+
+        Console.WriteLine(tempNumber)
+    End Sub
 End Class
