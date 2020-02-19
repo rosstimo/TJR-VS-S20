@@ -27,6 +27,7 @@ Partial Class ValidateUserDataForm
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.ValidateButton = New System.Windows.Forms.Button()
         Me.TotalButton = New System.Windows.Forms.Button()
+        Me.ClearButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -61,18 +62,28 @@ Partial Class ValidateUserDataForm
         '
         'TotalButton
         '
-        Me.TotalButton.Location = New System.Drawing.Point(300, 183)
+        Me.TotalButton.Location = New System.Drawing.Point(300, 87)
         Me.TotalButton.Name = "TotalButton"
         Me.TotalButton.Size = New System.Drawing.Size(169, 78)
         Me.TotalButton.TabIndex = 4
-        Me.TotalButton.Text = "Total"
+        Me.TotalButton.Text = "&Total"
         Me.TotalButton.UseVisualStyleBackColor = True
+        '
+        'ClearButton
+        '
+        Me.ClearButton.Location = New System.Drawing.Point(300, 182)
+        Me.ClearButton.Name = "ClearButton"
+        Me.ClearButton.Size = New System.Drawing.Size(169, 78)
+        Me.ClearButton.TabIndex = 5
+        Me.ClearButton.Text = "&Clear"
+        Me.ClearButton.UseVisualStyleBackColor = True
         '
         'ValidateUserDataForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(519, 298)
+        Me.Controls.Add(Me.ClearButton)
         Me.Controls.Add(Me.TotalButton)
         Me.Controls.Add(Me.ValidateButton)
         Me.Controls.Add(Me.TextBox3)
@@ -90,4 +101,5 @@ Partial Class ValidateUserDataForm
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents ValidateButton As Button
     Friend WithEvents TotalButton As Button
+    Friend WithEvents ClearButton As Button
 End Class
