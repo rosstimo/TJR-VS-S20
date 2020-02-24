@@ -71,6 +71,7 @@ Partial Class ValidateUserDataForm
         '
         'ClearButton
         '
+        Me.ClearButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.ClearButton.Location = New System.Drawing.Point(300, 182)
         Me.ClearButton.Name = "ClearButton"
         Me.ClearButton.Size = New System.Drawing.Size(169, 78)
@@ -80,8 +81,10 @@ Partial Class ValidateUserDataForm
         '
         'ValidateUserDataForm
         '
+        Me.AcceptButton = Me.TotalButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.ClearButton
         Me.ClientSize = New System.Drawing.Size(519, 298)
         Me.Controls.Add(Me.ClearButton)
         Me.Controls.Add(Me.TotalButton)

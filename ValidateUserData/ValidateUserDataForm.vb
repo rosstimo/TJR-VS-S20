@@ -122,6 +122,7 @@ Public Class ValidateUserDataForm
         RunningTotal(0, True)
     End Sub
 
+
     Private Sub TextBox1_LostFocus(sender As Object, e As EventArgs) Handles TextBox1.LostFocus
         Console.WriteLine(sender.ToString)
         Console.WriteLine(e.ToString)
