@@ -22,12 +22,11 @@
         Dim index As Integer
 
         Me.Text = DataListBox.SelectedIndex.ToString
-        'TODO add selected to first name and last name text box
         index = InStr(DataListBox.SelectedItem.ToString, " ")
-
-        FirstNameTextBox.Text = Strings.Left(DataListBox.SelectedItem.ToString, index)
-        'TODO Right() don't work
-        LastNameTextBox.Text = Strings.Right(DataListBox.SelectedItem.ToString, index)
+        FirstNameTextBox.Text = Trim(Strings.Left(DataListBox.SelectedItem.ToString, index))
+        LastNameTextBox.Text = Trim(Strings.Mid(DataListBox.SelectedItem.ToString, index, Len(DataListBox.SelectedItem.ToString)))
 
     End Sub
+
+
 End Class
