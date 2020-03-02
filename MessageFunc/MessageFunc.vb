@@ -14,6 +14,12 @@ Module MessageFunc
 
         'your code here
 
+        If clearMessage = True Then
+            formattedMessages = ""
+        ElseIf addMessage = True Then
+            formattedMessages &= message & vbNewLine
+        End If
+
         Return formattedMessages
 
     End Function
