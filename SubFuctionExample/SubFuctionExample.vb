@@ -1,7 +1,7 @@
 ﻿Option Strict On
 Option Explicit On
 
-Module Module1
+Module SubFuctionExample
 
     Sub Main()
 
@@ -11,9 +11,13 @@ Module Module1
         'Console.WriteLine(myNumber)
         'Console.ReadLine()
 
-        MySub(myNumber)
-        'Console.WriteLine("In Sub Main")
-        'Console.WriteLine(myNumber)
+
+        Dim someNumberInMain As Integer
+        someNumberInMain = 17
+        MySub(someNumberInMain)
+
+        Console.WriteLine("In Sub Main")
+        Console.WriteLine(someNumberInMain)
 
         'myNumber = MyFunc(myNumber)
         'Console.WriteLine("In Sub Main")
@@ -28,13 +32,18 @@ Module Module1
         Console.ReadLine()
     End Sub
 
-    Sub MySub(myNumber As Integer)
+    'ByVal Creates a copy -- Safe
+    'ByRef Points at the callers actual variable -- Less Safe
+
+    'Sub MySub(ByRef myNumberInMySub As Integer)
+    Sub MySub(ByVal myNumberInMySub As Integer)
+
         'Dim myNumber As Integer
         'myNumber = myNumber + 2
-        myNumber += 2
+        myNumberInMySub += 2
         Console.WriteLine("In Sub MySub")
-        Console.WriteLine(myNumber)
-        Console.ReadLine()
+        Console.WriteLine(myNumberInMySub)
+        'Console.ReadLine()
     End Sub
 
     Function MyFunc(myNumber As Integer) As Integer
