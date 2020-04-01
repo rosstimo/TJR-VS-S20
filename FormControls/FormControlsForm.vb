@@ -1,6 +1,5 @@
-﻿
-
-
+﻿Option Explicit On
+Option Strict On
 Public Class FormControlsForm
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         Me.Close()
