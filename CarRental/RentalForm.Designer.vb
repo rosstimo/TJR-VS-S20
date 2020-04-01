@@ -20,7 +20,6 @@ Partial Class RentalForm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.NameLabel = New System.Windows.Forms.Label()
         Me.AddressLabel = New System.Windows.Forms.Label()
         Me.CityLabel = New System.Windows.Forms.Label()
         Me.State4 = New System.Windows.Forms.Label()
@@ -56,21 +55,9 @@ Partial Class RentalForm
         Me.RentalFormToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.MilesDrivenTextBox = New System.Windows.Forms.TextBox()
         Me.MileChargeTextBox = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.OdometerGroupbox.SuspendLayout()
         Me.DiscountGroupbox.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'NameLabel
-        '
-        Me.NameLabel.AutoSize = True
-        Me.NameLabel.Location = New System.Drawing.Point(8, 20)
-        Me.NameLabel.Name = "NameLabel"
-        Me.NameLabel.Size = New System.Drawing.Size(82, 13)
-        Me.NameLabel.TabIndex = 0
-        Me.NameLabel.Text = "Customer Name"
         '
         'AddressLabel
         '
@@ -380,44 +367,11 @@ Partial Class RentalForm
         Me.MileChargeTextBox.TabStop = False
         Me.MileChargeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'TextBox3
-        '
-        Me.TextBox3.Location = New System.Drawing.Point(498, 80)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.ReadOnly = True
-        Me.TextBox3.Size = New System.Drawing.Size(133, 20)
-        Me.TextBox3.TabIndex = 36
-        Me.TextBox3.TabStop = False
-        Me.TextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Location = New System.Drawing.Point(498, 112)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.ReadOnly = True
-        Me.TextBox4.Size = New System.Drawing.Size(133, 20)
-        Me.TextBox4.TabIndex = 37
-        Me.TextBox4.TabStop = False
-        Me.TextBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'TextBox5
-        '
-        Me.TextBox5.Location = New System.Drawing.Point(498, 144)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.ReadOnly = True
-        Me.TextBox5.Size = New System.Drawing.Size(133, 20)
-        Me.TextBox5.TabIndex = 38
-        Me.TextBox5.TabStop = False
-        Me.TextBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
         'RentalForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(643, 437)
-        Me.Controls.Add(Me.TextBox5)
-        Me.Controls.Add(Me.TextBox4)
-        Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.MileChargeTextBox)
         Me.Controls.Add(Me.MilesDrivenTextBox)
         Me.Controls.Add(Me.SummaryButton)
@@ -448,7 +402,6 @@ Partial Class RentalForm
         Me.Controls.Add(Me.State4)
         Me.Controls.Add(Me.CityLabel)
         Me.Controls.Add(Me.AddressLabel)
-        Me.Controls.Add(Me.NameLabel)
         Me.Name = "RentalForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Acme Car Rental Service"

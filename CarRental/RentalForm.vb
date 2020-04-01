@@ -3,11 +3,38 @@ Option Strict On
 Option Compare Binary
 Public Class RentalForm
     Private Sub RentalForm_Load(sender As Object, e As EventArgs) Handles Me.Load
+        ResetAll()
+        SummaryButton.Enabled = False
+    End Sub
 
+    Sub ResetAll()
+        'Clear User input
+        NameTextBox.Text = ""
+        AddressTextBox.Text = ""
+        CityTextBox.Text = ""
+        StateTextBox.Text = ""
+        ZipCodeTextBox.Text = ""
+        BeginOdometerTextBox.Text = ""
+        EndOdometerTextBox.Text = ""
+        DaysTextBox.Text = ""
+        MilesradioButton.Select()
+        AAAcheckbox.Checked = False
+        Seniorcheckbox.Checked = False
+        'Clear Output
+
+    End Sub
+    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
+        ResetAll()
     End Sub
 
     Private Sub CalculateButton_Click(sender As Object, e As EventArgs) Handles CalculateButton.Click
-        MileageCharge(220)
+        'ValidateAll()
+        'DailyCharge()
+        'Discount()
+        MileageCharge(220) 'check and convert if kilo
+        'DislayOutput()
+        '
+
 
         'verifyOdometer()
         'MsgBox(UserMessages(False, "", False))
@@ -29,16 +56,16 @@ Public Class RentalForm
     End Sub
 
     Function MileageCharge(ByRef miles As Decimal) As Decimal
+        'Mileage Charge
+        'First 200 miles driven are always free. 
+        'All miles between 201 And 500 inclusive are .12 cents per mile. 
+        'miles greater than 500 are charged at .10 cents per mile.
+
         Dim mileCharge As Decimal
 
         Const RATE_REGULAR = 0.12D
         Const RATE_LOW = 0.1D
         Const RATE_FREE = 0D
-
-        'Mileage Charge
-        'First 200 miles driven are always free. 
-        'All miles between 201 And 500 inclusive are .12 cents per mile. 
-        'miles greater than 500 are charged at .10 cents per mile.
 
         Select Case miles
             Case <= 200
@@ -48,12 +75,6 @@ Public Class RentalForm
             Case Else
                 mileCharge = miles * RATE_REGULAR
         End Select
-
-
-
-
-
-
 
         Return mileCharge
     End Function
