@@ -18,8 +18,8 @@ Public Class RentalForm
         EndOdometerTextBox.Text = ""
         DaysTextBox.Text = ""
         MilesradioButton.Select()
-        AAAcheckbox.Checked = False
-        Seniorcheckbox.Checked = False
+        AAACheckbox.Checked = False
+        SeniorCheckbox.Checked = False
         'Clear Output
 
     End Sub
@@ -40,6 +40,29 @@ Public Class RentalForm
         'MsgBox(UserMessages(False, "", False))
 
     End Sub
+
+    Function Discount(totalCharges As Decimal) As Decimal
+        'Use the check boxes for AAA Member And Senior Citizen. 
+        'AAA members receive a 5% discount
+        'senior citizens get a 3% discount.
+        'A person can receive both discounts. 
+        'Do Not take the discount until the calculate button Is clicked.
+
+        Const AAARATE = 0.05D
+        Const SENIORRATE = 0.03D
+        Dim totalDiscount As Decimal = 0
+
+        If AAACheckbox.Checked = True Then
+            totalDiscount += totalCharges * AAARATE
+        End If
+
+        If SeniorCheckbox.Checked = True Then
+            totalDiscount += totalCharges * SENIORRATE
+        End If
+
+        Return totalDiscount
+
+    End Function
 
     Sub verifyOdometer()
         Dim userMessage As String

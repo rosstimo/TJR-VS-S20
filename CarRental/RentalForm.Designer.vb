@@ -39,8 +39,8 @@ Partial Class RentalForm
         Me.KilometersradioButton = New System.Windows.Forms.RadioButton()
         Me.MilesradioButton = New System.Windows.Forms.RadioButton()
         Me.DiscountGroupbox = New System.Windows.Forms.GroupBox()
-        Me.Seniorcheckbox = New System.Windows.Forms.CheckBox()
-        Me.AAAcheckbox = New System.Windows.Forms.CheckBox()
+        Me.SeniorCheckbox = New System.Windows.Forms.CheckBox()
+        Me.AAACheckbox = New System.Windows.Forms.CheckBox()
         Me.CalculateButton = New System.Windows.Forms.Button()
         Me.ClearButton = New System.Windows.Forms.Button()
         Me.ExitButton = New System.Windows.Forms.Button()
@@ -214,8 +214,8 @@ Partial Class RentalForm
         '
         'DiscountGroupbox
         '
-        Me.DiscountGroupbox.Controls.Add(Me.Seniorcheckbox)
-        Me.DiscountGroupbox.Controls.Add(Me.AAAcheckbox)
+        Me.DiscountGroupbox.Controls.Add(Me.SeniorCheckbox)
+        Me.DiscountGroupbox.Controls.Add(Me.AAACheckbox)
         Me.DiscountGroupbox.Font = New System.Drawing.Font("Courier New", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DiscountGroupbox.Location = New System.Drawing.Point(352, 244)
         Me.DiscountGroupbox.Name = "DiscountGroupbox"
@@ -224,25 +224,25 @@ Partial Class RentalForm
         Me.DiscountGroupbox.TabStop = False
         Me.DiscountGroupbox.Text = "Enter Any Discounts"
         '
-        'Seniorcheckbox
+        'SeniorCheckbox
         '
-        Me.Seniorcheckbox.AutoSize = True
-        Me.Seniorcheckbox.Location = New System.Drawing.Point(20, 56)
-        Me.Seniorcheckbox.Name = "Seniorcheckbox"
-        Me.Seniorcheckbox.Size = New System.Drawing.Size(211, 20)
-        Me.Seniorcheckbox.TabIndex = 1
-        Me.Seniorcheckbox.Text = "Senior Citizen Discount"
-        Me.Seniorcheckbox.UseVisualStyleBackColor = True
+        Me.SeniorCheckbox.AutoSize = True
+        Me.SeniorCheckbox.Location = New System.Drawing.Point(20, 56)
+        Me.SeniorCheckbox.Name = "SeniorCheckbox"
+        Me.SeniorCheckbox.Size = New System.Drawing.Size(211, 20)
+        Me.SeniorCheckbox.TabIndex = 1
+        Me.SeniorCheckbox.Text = "Senior Citizen Discount"
+        Me.SeniorCheckbox.UseVisualStyleBackColor = True
         '
-        'AAAcheckbox
+        'AAACheckbox
         '
-        Me.AAAcheckbox.AutoSize = True
-        Me.AAAcheckbox.Location = New System.Drawing.Point(20, 28)
-        Me.AAAcheckbox.Name = "AAAcheckbox"
-        Me.AAAcheckbox.Size = New System.Drawing.Size(179, 20)
-        Me.AAAcheckbox.TabIndex = 0
-        Me.AAAcheckbox.Text = "AAA Member Discount"
-        Me.AAAcheckbox.UseVisualStyleBackColor = True
+        Me.AAACheckbox.AutoSize = True
+        Me.AAACheckbox.Location = New System.Drawing.Point(20, 28)
+        Me.AAACheckbox.Name = "AAACheckbox"
+        Me.AAACheckbox.Size = New System.Drawing.Size(179, 20)
+        Me.AAACheckbox.TabIndex = 0
+        Me.AAACheckbox.Text = "AAA Member Discount"
+        Me.AAACheckbox.UseVisualStyleBackColor = True
         '
         'CalculateButton
         '
@@ -433,8 +433,8 @@ Partial Class RentalForm
     Friend WithEvents KilometersradioButton As System.Windows.Forms.RadioButton
     Friend WithEvents MilesradioButton As System.Windows.Forms.RadioButton
     Friend WithEvents DiscountGroupbox As System.Windows.Forms.GroupBox
-    Friend WithEvents Seniorcheckbox As System.Windows.Forms.CheckBox
-    Friend WithEvents AAAcheckbox As System.Windows.Forms.CheckBox
+    Friend WithEvents SeniorCheckbox As System.Windows.Forms.CheckBox
+    Friend WithEvents AAACheckbox As System.Windows.Forms.CheckBox
     Friend WithEvents CalculateButton As System.Windows.Forms.Button
     Friend WithEvents ClearButton As System.Windows.Forms.Button
     Friend WithEvents ExitButton As System.Windows.Forms.Button
