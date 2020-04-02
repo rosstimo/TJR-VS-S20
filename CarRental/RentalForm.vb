@@ -28,18 +28,31 @@ Public Class RentalForm
     End Sub
 
     Private Sub CalculateButton_Click(sender As Object, e As EventArgs) Handles CalculateButton.Click
-        'ValidateAll()
-        'DailyCharge()
-        'Discount()
-        Console.WriteLine(MileageCharge(201)) 'check and convert if kilo
-        'DislayOutput()
-        '
-
-
-        'verifyOdometer()
-        'MsgBox(UserMessages(False, "", False))
-
+        If AllChecksAreValid() Then
+            'TODO proceed to calculations and updates
+            'DailyCharge()
+            'MileageCharge(201)'check and convert if kilo
+            'Discount()
+            'DislayOutput()
+            'UpdateSummary()
+            Console.WriteLine("Yep")
+        Else
+            'TODO alert user
+            'MsgBox(UserMessages(False, "", False))
+            Console.WriteLine("Nope")
+        End If
     End Sub
+    Function AllChecksAreValid() As Boolean
+        Dim result As Boolean
+        'TODO perform all validations return True if good
+        'VerifyNoEmpty
+        'VerifyOdometer()
+        'VerifyNumberOfDays()
+
+        result = False
+        Return result
+    End Function
+
 
     Function Discount(totalCharges As Decimal) As Decimal
         'Use the check boxes for AAA Member And Senior Citizen. 
@@ -116,6 +129,41 @@ Public Class RentalForm
         Return formattedMessages
 
     End Function
+    Function DoChecks() As Boolean
+        'another way to do validation
+        Dim result As Boolean
+        Dim tempNum As Double
+        Dim message As String = ""
 
+        Try
+            tempNum = CDbl(EndOdometerTextBox.Text)
+            tempNum = CDbl(BeginOdometerTextBox.Text)
+        Catch Except As Exception
+            message &= "Odometer readings must be numbers" & vbNewLine
+        End Try
+
+        Try
+            tempNum = CDbl(DaysTextBox.Text)
+            If tempNum < 0 Or tempNum > 45 Then
+                message &= "Number of days must be between 0 an 45" & vbNewLine
+            End If
+        Catch Except As Exception
+            message &= "Number of days must be a number" & vbNewLine
+        End Try
+
+        'check for empties
+        If ZipCodeTextBox.Text = "" Or StateTextBox.Text = "" Then
+            message &= "Please complete all information fields" & vbNewLine
+        End If
+
+        If message <> "" Then
+            'TODO Message box
+            result = False
+        Else
+            result = True
+        End If
+
+        Return result
+    End Function
 
 End Class
