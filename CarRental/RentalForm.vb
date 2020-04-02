@@ -31,7 +31,7 @@ Public Class RentalForm
         'ValidateAll()
         'DailyCharge()
         'Discount()
-        MileageCharge(220) 'check and convert if kilo
+        Console.WriteLine(MileageCharge(201)) 'check and convert if kilo
         'DislayOutput()
         '
 
@@ -70,7 +70,7 @@ Public Class RentalForm
         Try
             If CDec(BeginOdometerTextBox.Text) > CDec(EndOdometerTextBox.Text) Then
                 'MsgBox("Yeah!")
-                userMessage = "Begining Odometer Must Be Smaller Than Ending Odometer"
+                userMessage = "Beginning Odometer Must Be Smaller Than Ending Odometer"
             End If
         Catch ex As Exception
             userMessage = "Odometer entries must be numbers"
@@ -94,9 +94,10 @@ Public Class RentalForm
             Case <= 200
                 mileCharge = miles * RATE_FREE
             Case > 500
-                mileCharge = miles * RATE_LOW
+                mileCharge = 300 * RATE_REGULAR
+                mileCharge += (miles - 500) * RATE_LOW
             Case Else
-                mileCharge = miles * RATE_REGULAR
+                mileCharge = (miles - 200) * RATE_REGULAR
         End Select
 
         Return mileCharge
