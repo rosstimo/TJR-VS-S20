@@ -166,4 +166,46 @@ Public Class RentalForm
         Return result
     End Function
 
+    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
+        'See https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.interaction.msgbox?f1url=https%3A%2F%2Fmsdn.microsoft.com%2Fquery%2Fdev16.query%3FappId%3DDev16IDEF1%26l%3DEN-US%26k%3Dk(Microsoft.VisualBasic.Interaction.MsgBox);k(TargetFrameworkMoniker-.NETFramework,Version%3Dv4.7.2);k(DevLang-VB)%26rd%3Dtrue&view=netframework-4.8
+
+        ' The following example requires that Option Infer be set to On.
+
+        ' Define the message you want to see inside the message box.
+        Dim msg = "Do you want to continue?"
+
+        ' Display a simple message box.
+        MsgBox(msg)
+
+        ' Define a title for the message box.
+        Dim title = "MsgBox Demonstration"
+
+        ' Add the title to the display.
+        MsgBox(msg, , title)
+
+        ' Now define a style for the message box. In this example, the
+        ' message box will have Yes and No buttons, the default will be
+        ' the No button, and a Critical Message icon will be present.
+        Dim style = MsgBoxStyle.YesNo Or MsgBoxStyle.DefaultButton2 Or
+                    MsgBoxStyle.Question
+
+        ' Display the message box and save the response, Yes or No.
+        Dim response = MsgBox(msg, style, title)
+
+        ' Take some action based on the response.
+        If response = MsgBoxResult.Yes Then
+            MsgBox("YES, continue!!", , title)
+        Else
+            MsgBox("NO, stop!!", , title)
+        End If
+
+        'This is another way to 
+        Dim otherResult As DialogResult
+
+        otherResult = MessageBox.Show("Are you sure??!!", "Title Here", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
+        If otherResult = DialogResult.Yes Then
+            Me.Close()
+        End If
+    End Sub
+
 End Class

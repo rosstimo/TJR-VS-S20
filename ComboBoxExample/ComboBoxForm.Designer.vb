@@ -28,6 +28,7 @@ Partial Class ComboBoxForm
         Me.AgeTextBox = New System.Windows.Forms.TextBox()
         Me.NameLabel = New System.Windows.Forms.Label()
         Me.AgeLabel = New System.Windows.Forms.Label()
+        Me.RemoveButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'MainComboBox
@@ -77,11 +78,21 @@ Partial Class ComboBoxForm
         Me.AgeLabel.TabIndex = 5
         Me.AgeLabel.Text = "Age"
         '
+        'RemoveButton
+        '
+        Me.RemoveButton.Location = New System.Drawing.Point(260, 81)
+        Me.RemoveButton.Name = "RemoveButton"
+        Me.RemoveButton.Size = New System.Drawing.Size(114, 94)
+        Me.RemoveButton.TabIndex = 6
+        Me.RemoveButton.Text = "Remove"
+        Me.RemoveButton.UseVisualStyleBackColor = True
+        '
         'ComboBoxForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(499, 197)
+        Me.Controls.Add(Me.RemoveButton)
         Me.Controls.Add(Me.AgeLabel)
         Me.Controls.Add(Me.NameLabel)
         Me.Controls.Add(Me.AgeTextBox)
@@ -102,4 +113,5 @@ Partial Class ComboBoxForm
     Friend WithEvents AgeTextBox As TextBox
     Friend WithEvents NameLabel As Label
     Friend WithEvents AgeLabel As Label
+    Friend WithEvents RemoveButton As Button
 End Class
