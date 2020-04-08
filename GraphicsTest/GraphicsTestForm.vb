@@ -68,6 +68,7 @@
 
     Private Sub GraphicsTestForm_MouseMove(sender As Object, e As MouseEventArgs) Handles Me.MouseMove
         Dim g As Graphics = Me.CreateGraphics
+
         Dim newcolor As Color = Color.Black
         Dim pen As New Pen(newcolor, 3)
 
@@ -81,6 +82,8 @@
 
         If e.Button.ToString = "Left" Then
             g.DrawLine(pen, x1, y1, e.X, e.Y)
+        ElseIf e.Button.ToString = "Right" Then
+            g.Clear(Color.WhiteSmoke)
         End If
 
         x1 = e.X : y1 = e.Y
@@ -91,7 +94,10 @@
     End Sub
 
     Private Sub GraphicsTestForm_Resize(sender As Object, e As EventArgs) Handles Me.Resize
-        Me.Text = Me.Height & Me.Width
+        Me.Text = Me.Height & "  " & Me.Width
     End Sub
 
+    Private Sub GraphicsTestForm_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
+
+    End Sub
 End Class

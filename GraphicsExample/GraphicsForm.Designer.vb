@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class GraphicsTestForm
+Partial Class GraphicsForm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,20 +22,20 @@ Partial Class GraphicsTestForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.SuspendLayout()
         '
-        'GraphicsTestForm
+        'GraphicsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(528, 287)
-        Me.Cursor = System.Windows.Forms.Cursors.Cross
-        Me.Name = "GraphicsTestForm"
+        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Name = "GraphicsForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Graphics"
+        Me.Text = "Let's Draw!"
         Me.ResumeLayout(False)
 
     End Sub
 
+    Friend WithEvents ColorDialog1 As ColorDialog
 End Class
