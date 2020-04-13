@@ -1,0 +1,3 @@
+"Apples","3"
+"Pears","3"
+"Ice Cream", "1"
