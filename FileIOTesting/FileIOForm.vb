@@ -100,5 +100,27 @@ Public Class FileIOForm
 
     End Sub
 
+    Sub MakeArray() Handles Me.click
+        Dim currentRecord As String
+        Dim fileData As String
+        'Dim filename As String = "C:\Users\timro\OneDrive\Sync\github\TJR-VS-S20\StansGrocery\Resources\Grocery.txt"
+        Dim fileNumber As Integer = FreeFile()
+        Dim fileDataArray() As String
+        Dim fileInfo = My.Computer.FileSystem.GetFileInfo(filename)
+        Try
+            Console.WriteLine(fileInfo.Length)
+            FileOpen(fileNumber, filename, OpenMode.Input)
+            Do While Not EOF(fileNumber)
+                Input(fileNumber, currentRecord)
+                fileData &= currentRecord
+            Loop
+        Catch ex As Exception
+            'TODO: user select file if it doesn't exist
+            Console.WriteLine(ex.Message)
+        Finally
+            FileClose(fileNumber)
+        End Try
+
+    End Sub
 
 End Class

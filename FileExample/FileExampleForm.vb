@@ -1,6 +1,20 @@
 ﻿Public Class FileExampleForm
 
     Dim fileName As String = "C:\Users\timro\Downloads\jnk.txt"
+    Sub ChooseFile()
+        OpenFileDialog1.ShowDialog()
+        fileName = OpenFileDialog1.FileName()
+    End Sub
+
+    Sub SaveFile()
+        SaveFileDialog1.DefaultExt = ".txt"
+        SaveFileDialog1.Filter = "Show Me A Movie|*.mp4|Text files|*.txt|All files|*.*"
+        SaveFileDialog1.InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+        SaveFileDialog1.ShowDialog()
+
+
+        FileCopy(fileName, SaveFileDialog1.FileName)
+    End Sub
 
     Sub WriteToFile()
 
@@ -53,6 +67,8 @@
         Dim fileDataString As String
         Dim fileDataArray() As String
 
+
+
         Try
             FileOpen(1, fileName, OpenMode.Input)
             Do While Not EOF(1)
@@ -79,8 +95,11 @@
         ReadFileToArray()
     End Sub
 
+    Private Sub OpenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenToolStripMenuItem.Click
+        ChooseFile()
+    End Sub
 
-
-
-
+    Private Sub SaveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveToolStripMenuItem.Click
+        SaveFile()
+    End Sub
 End Class
