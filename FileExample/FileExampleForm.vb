@@ -1,6 +1,20 @@
 ﻿Public Class FileExampleForm
+    'specific to this computer
+    'Private fileName As String = "C:\Users\timro\Downloads\jnk.txt"
 
-    Dim fileName As String = "C:\Users\timro\Downloads\jnk.txt"
+    'relative to the .exe same folder
+    'Private fileName As String = "RelativePath.txt"
+
+    'relative to the .exe ..\..\ two folders up from .exe
+    'Private fileName As String = "..\..\TwoLevelUpRelativePath.txt"
+
+    'best option for .NET. embeds within program files. handles paths for you.
+    Private fileName As String = My.Resources.CrazyJunk
+
+    'C:\Users\timro\OneDrive\Sync\github\TJR-VS-S20\FileExample\bin\Debug\RelativePath.txt
+    'C:\Users\timro\OneDrive\Sync\github\TJR-VS-S20\FileExample\bin\Release\RelativePath.txt
+    'C:\Users\timro\OneDrive\Sync\github\TJR-VS-S20\FileExample\RelativePath.txt
+
     Sub ChooseFile()
         OpenFileDialog1.ShowDialog()
         fileName = OpenFileDialog1.FileName()
@@ -88,11 +102,11 @@
 
 
     Private Sub FileExampleForm_Click(sender As Object, e As EventArgs) Handles Me.Click
-        'WriteToFile()
+        WriteToFile()
         'AppendToFile()
         'ReadAFile()
         'ReadEntireFile()
-        ReadFileToArray()
+        'ReadFileToArray()
     End Sub
 
     Private Sub OpenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenToolStripMenuItem.Click
