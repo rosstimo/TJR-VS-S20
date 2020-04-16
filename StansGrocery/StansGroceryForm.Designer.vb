@@ -24,7 +24,6 @@ Partial Class StansGroceryForm
     Private Sub InitializeComponent()
         Me.TopMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.FileTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EditTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -34,12 +33,14 @@ Partial Class StansGroceryForm
         Me.SelectLabel = New System.Windows.Forms.Label()
         Me.SearchButton = New System.Windows.Forms.Button()
         Me.LeftGroupBox = New System.Windows.Forms.GroupBox()
+        Me.DisplayLabel = New System.Windows.Forms.Label()
         Me.TopMenuStrip.SuspendLayout()
+        Me.LeftGroupBox.SuspendLayout()
         Me.SuspendLayout()
         '
         'TopMenuStrip
         '
-        Me.TopMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileTopMenuItem, Me.EditTopMenuItem, Me.HelpTopMenuItem})
+        Me.TopMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileTopMenuItem, Me.HelpTopMenuItem})
         Me.TopMenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.TopMenuStrip.Name = "TopMenuStrip"
         Me.TopMenuStrip.Size = New System.Drawing.Size(625, 24)
@@ -52,12 +53,6 @@ Partial Class StansGroceryForm
         Me.FileTopMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileTopMenuItem.Text = "&File"
         '
-        'EditTopMenuItem
-        '
-        Me.EditTopMenuItem.Name = "EditTopMenuItem"
-        Me.EditTopMenuItem.Size = New System.Drawing.Size(39, 20)
-        Me.EditTopMenuItem.Text = "Edit"
-        '
         'HelpTopMenuItem
         '
         Me.HelpTopMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutTopMenuItem})
@@ -68,7 +63,7 @@ Partial Class StansGroceryForm
         'AboutTopMenuItem
         '
         Me.AboutTopMenuItem.Name = "AboutTopMenuItem"
-        Me.AboutTopMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.AboutTopMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.AboutTopMenuItem.Text = "About"
         '
         'TextBox1
@@ -110,11 +105,11 @@ Partial Class StansGroceryForm
         'SelectLabel
         '
         Me.SelectLabel.AutoSize = True
-        Me.SelectLabel.Location = New System.Drawing.Point(39, 72)
+        Me.SelectLabel.Location = New System.Drawing.Point(16, 72)
         Me.SelectLabel.Name = "SelectLabel"
-        Me.SelectLabel.Size = New System.Drawing.Size(37, 13)
+        Me.SelectLabel.Size = New System.Drawing.Size(60, 13)
         Me.SelectLabel.TabIndex = 5
-        Me.SelectLabel.Text = "Select"
+        Me.SelectLabel.Text = "Select Item"
         '
         'SearchButton
         '
@@ -127,11 +122,19 @@ Partial Class StansGroceryForm
         '
         'LeftGroupBox
         '
+        Me.LeftGroupBox.Controls.Add(Me.DisplayLabel)
         Me.LeftGroupBox.Location = New System.Drawing.Point(82, 99)
         Me.LeftGroupBox.Name = "LeftGroupBox"
         Me.LeftGroupBox.Size = New System.Drawing.Size(218, 224)
         Me.LeftGroupBox.TabIndex = 7
         Me.LeftGroupBox.TabStop = False
+        '
+        'DisplayLabel
+        '
+        Me.DisplayLabel.Location = New System.Drawing.Point(3, 16)
+        Me.DisplayLabel.Name = "DisplayLabel"
+        Me.DisplayLabel.Size = New System.Drawing.Size(209, 205)
+        Me.DisplayLabel.TabIndex = 0
         '
         'StansGroceryForm
         '
@@ -152,6 +155,7 @@ Partial Class StansGroceryForm
         Me.Text = "Welcome to Stan's Grocery"
         Me.TopMenuStrip.ResumeLayout(False)
         Me.TopMenuStrip.PerformLayout()
+        Me.LeftGroupBox.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -159,7 +163,6 @@ Partial Class StansGroceryForm
 
     Friend WithEvents TopMenuStrip As MenuStrip
     Friend WithEvents FileTopMenuItem As ToolStripMenuItem
-    Friend WithEvents EditTopMenuItem As ToolStripMenuItem
     Friend WithEvents HelpTopMenuItem As ToolStripMenuItem
     Friend WithEvents AboutTopMenuItem As ToolStripMenuItem
     Friend WithEvents TextBox1 As TextBox
@@ -169,4 +172,5 @@ Partial Class StansGroceryForm
     Friend WithEvents SelectLabel As Label
     Friend WithEvents SearchButton As Button
     Friend WithEvents LeftGroupBox As GroupBox
+    Friend WithEvents DisplayLabel As Label
 End Class
