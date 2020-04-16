@@ -123,8 +123,5 @@
   <ItemGroup>
     <None Include="My Project\temp.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Grocery.txt" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
