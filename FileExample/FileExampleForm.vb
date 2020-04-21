@@ -102,11 +102,12 @@
 
 
     Private Sub FileExampleForm_Click(sender As Object, e As EventArgs) Handles Me.Click
-        WriteToFile()
+        'WriteToFile()
         'AppendToFile()
         'ReadAFile()
         'ReadEntireFile()
         'ReadFileToArray()
+        ReadFileItemsToArray()
     End Sub
 
     Private Sub OpenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenToolStripMenuItem.Click
@@ -116,4 +117,49 @@
     Private Sub SaveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveToolStripMenuItem.Click
         SaveFile()
     End Sub
+
+    Sub ReadFileItemsToArray()
+        'Dim currentName As String
+        'Dim fileDataString As String
+        Dim userPointer As Integer = 0
+        Dim userInfo(9, 1) As String 'Name and age
+
+        Dim userFile As String = "../../UserData.txt"
+
+
+        Try
+            FileOpen(1, userFile, OpenMode.Input)
+            Do While Not EOF(1)
+
+                Input(1, userInfo(userPointer, 0))
+                Input(1, userInfo(userPointer, 1))
+                userPointer += 1
+            Loop
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        Finally
+            FileClose(1)
+        End Try
+
+
+        'need to handle exceptions here
+        For i = LBound(userInfo) To UBound(userInfo)
+            MsgBox(userInfo(i, 0) & " is " & userInfo(i, 1) & " years old.")
+            If userInfo(i, 0) = "Frank" Then
+                MsgBox("Happy B-Day!!")
+            End If
+            If CInt(userInfo(i, 1)) < 18 Then
+                MsgBox("You are too young to ride this ride..")
+            End If
+            'userInfo(i, 0)
+        Next
+
+
+
+        Console.WriteLine()
+    End Sub
+
+
+
+
 End Class
