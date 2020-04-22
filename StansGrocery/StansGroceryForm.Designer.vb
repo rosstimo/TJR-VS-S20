@@ -22,24 +22,33 @@ Partial Class StansGroceryForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.TopMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.FileTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SearchTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.QuitTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.SearchTextBox = New System.Windows.Forms.TextBox()
+        Me.DisplayComboBox = New System.Windows.Forms.ComboBox()
         Me.DisplayListBox = New System.Windows.Forms.ListBox()
         Me.LookUpLabel = New System.Windows.Forms.Label()
         Me.SelectLabel = New System.Windows.Forms.Label()
         Me.SearchButton = New System.Windows.Forms.Button()
         Me.LeftGroupBox = New System.Windows.Forms.GroupBox()
         Me.DisplayLabel = New System.Windows.Forms.Label()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.SearchToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.QuitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TopMenuStrip.SuspendLayout()
         Me.LeftGroupBox.SuspendLayout()
+        Me.ContextMenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'TopMenuStrip
         '
+        Me.TopMenuStrip.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.TopMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileTopMenuItem, Me.HelpTopMenuItem})
         Me.TopMenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.TopMenuStrip.Name = "TopMenuStrip"
@@ -49,9 +58,22 @@ Partial Class StansGroceryForm
         '
         'FileTopMenuItem
         '
+        Me.FileTopMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SearchTopMenuItem, Me.QuitTopMenuItem})
         Me.FileTopMenuItem.Name = "FileTopMenuItem"
         Me.FileTopMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileTopMenuItem.Text = "&File"
+        '
+        'SearchTopMenuItem
+        '
+        Me.SearchTopMenuItem.Name = "SearchTopMenuItem"
+        Me.SearchTopMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SearchTopMenuItem.Text = "&Search"
+        '
+        'QuitTopMenuItem
+        '
+        Me.QuitTopMenuItem.Name = "QuitTopMenuItem"
+        Me.QuitTopMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.QuitTopMenuItem.Text = "&Quit"
         '
         'HelpTopMenuItem
         '
@@ -63,27 +85,27 @@ Partial Class StansGroceryForm
         'AboutTopMenuItem
         '
         Me.AboutTopMenuItem.Name = "AboutTopMenuItem"
-        Me.AboutTopMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AboutTopMenuItem.Size = New System.Drawing.Size(107, 22)
         Me.AboutTopMenuItem.Text = "About"
         '
-        'TextBox1
+        'SearchTextBox
         '
-        Me.TextBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append
-        Me.TextBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.AllSystemSources
-        Me.TextBox1.Location = New System.Drawing.Point(82, 46)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(411, 20)
-        Me.TextBox1.TabIndex = 1
+        Me.SearchTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append
+        Me.SearchTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.AllSystemSources
+        Me.SearchTextBox.Location = New System.Drawing.Point(82, 46)
+        Me.SearchTextBox.Name = "SearchTextBox"
+        Me.SearchTextBox.Size = New System.Drawing.Size(411, 20)
+        Me.SearchTextBox.TabIndex = 1
         '
-        'ComboBox1
+        'DisplayComboBox
         '
-        Me.ComboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append
-        Me.ComboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(82, 72)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(218, 21)
-        Me.ComboBox1.TabIndex = 2
+        Me.DisplayComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append
+        Me.DisplayComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.DisplayComboBox.FormattingEnabled = True
+        Me.DisplayComboBox.Location = New System.Drawing.Point(82, 72)
+        Me.DisplayComboBox.Name = "DisplayComboBox"
+        Me.DisplayComboBox.Size = New System.Drawing.Size(218, 21)
+        Me.DisplayComboBox.TabIndex = 2
         '
         'DisplayListBox
         '
@@ -136,6 +158,25 @@ Partial Class StansGroceryForm
         Me.DisplayLabel.Size = New System.Drawing.Size(209, 205)
         Me.DisplayLabel.TabIndex = 0
         '
+        'ContextMenuStrip
+        '
+        Me.ContextMenuStrip.ImageScalingSize = New System.Drawing.Size(24, 24)
+        Me.ContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SearchToolStripMenuItem1, Me.QuitToolStripMenuItem})
+        Me.ContextMenuStrip.Name = "ContextMenuStrip"
+        Me.ContextMenuStrip.Size = New System.Drawing.Size(110, 48)
+        '
+        'SearchToolStripMenuItem1
+        '
+        Me.SearchToolStripMenuItem1.Name = "SearchToolStripMenuItem1"
+        Me.SearchToolStripMenuItem1.Size = New System.Drawing.Size(109, 22)
+        Me.SearchToolStripMenuItem1.Text = "&Search"
+        '
+        'QuitToolStripMenuItem
+        '
+        Me.QuitToolStripMenuItem.Name = "QuitToolStripMenuItem"
+        Me.QuitToolStripMenuItem.Size = New System.Drawing.Size(109, 22)
+        Me.QuitToolStripMenuItem.Text = "&Quit"
+        '
         'StansGroceryForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -146,8 +187,8 @@ Partial Class StansGroceryForm
         Me.Controls.Add(Me.SelectLabel)
         Me.Controls.Add(Me.LookUpLabel)
         Me.Controls.Add(Me.DisplayListBox)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.DisplayComboBox)
+        Me.Controls.Add(Me.SearchTextBox)
         Me.Controls.Add(Me.TopMenuStrip)
         Me.MainMenuStrip = Me.TopMenuStrip
         Me.Name = "StansGroceryForm"
@@ -156,6 +197,7 @@ Partial Class StansGroceryForm
         Me.TopMenuStrip.ResumeLayout(False)
         Me.TopMenuStrip.PerformLayout()
         Me.LeftGroupBox.ResumeLayout(False)
+        Me.ContextMenuStrip.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -165,12 +207,18 @@ Partial Class StansGroceryForm
     Friend WithEvents FileTopMenuItem As ToolStripMenuItem
     Friend WithEvents HelpTopMenuItem As ToolStripMenuItem
     Friend WithEvents AboutTopMenuItem As ToolStripMenuItem
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents SearchTextBox As TextBox
+    Friend WithEvents DisplayComboBox As ComboBox
     Friend WithEvents DisplayListBox As ListBox
     Friend WithEvents LookUpLabel As Label
     Friend WithEvents SelectLabel As Label
     Friend WithEvents SearchButton As Button
     Friend WithEvents LeftGroupBox As GroupBox
     Friend WithEvents DisplayLabel As Label
+    Friend WithEvents SearchTopMenuItem As ToolStripMenuItem
+    Friend WithEvents QuitTopMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents ContextMenuStrip As ContextMenuStrip
+    Friend WithEvents SearchToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents QuitToolStripMenuItem As ToolStripMenuItem
 End Class
