@@ -66,13 +66,13 @@ Partial Class StansGroceryForm
         'SearchTopMenuItem
         '
         Me.SearchTopMenuItem.Name = "SearchTopMenuItem"
-        Me.SearchTopMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SearchTopMenuItem.Size = New System.Drawing.Size(109, 22)
         Me.SearchTopMenuItem.Text = "&Search"
         '
         'QuitTopMenuItem
         '
         Me.QuitTopMenuItem.Name = "QuitTopMenuItem"
-        Me.QuitTopMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.QuitTopMenuItem.Size = New System.Drawing.Size(109, 22)
         Me.QuitTopMenuItem.Text = "&Quit"
         '
         'HelpTopMenuItem
@@ -109,10 +109,11 @@ Partial Class StansGroceryForm
         '
         'DisplayListBox
         '
+        Me.DisplayListBox.ContextMenuStrip = Me.ContextMenuStrip
         Me.DisplayListBox.FormattingEnabled = True
-        Me.DisplayListBox.Location = New System.Drawing.Point(306, 72)
+        Me.DisplayListBox.Location = New System.Drawing.Point(308, 72)
         Me.DisplayListBox.Name = "DisplayListBox"
-        Me.DisplayListBox.Size = New System.Drawing.Size(291, 251)
+        Me.DisplayListBox.Size = New System.Drawing.Size(289, 251)
         Me.DisplayListBox.TabIndex = 3
         '
         'LookUpLabel
@@ -153,6 +154,7 @@ Partial Class StansGroceryForm
         '
         'DisplayLabel
         '
+        Me.DisplayLabel.ContextMenuStrip = Me.ContextMenuStrip
         Me.DisplayLabel.Location = New System.Drawing.Point(3, 16)
         Me.DisplayLabel.Name = "DisplayLabel"
         Me.DisplayLabel.Size = New System.Drawing.Size(209, 205)
@@ -182,6 +184,7 @@ Partial Class StansGroceryForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(625, 347)
+        Me.ContextMenuStrip = Me.ContextMenuStrip
         Me.Controls.Add(Me.LeftGroupBox)
         Me.Controls.Add(Me.SearchButton)
         Me.Controls.Add(Me.SelectLabel)
@@ -191,6 +194,7 @@ Partial Class StansGroceryForm
         Me.Controls.Add(Me.SearchTextBox)
         Me.Controls.Add(Me.TopMenuStrip)
         Me.MainMenuStrip = Me.TopMenuStrip
+        Me.MaximizeBox = False
         Me.Name = "StansGroceryForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Welcome to Stan's Grocery"

@@ -39,22 +39,33 @@
         dataArray(3, 0) = "BBQ Chips"
 
         tempData = dataArray(Row, column)
+        'tempData = Row.ToString("p")
+        'Console.Write(tempData)
+
     End Sub
 
     Sub Tester()
         Dim tempData As String
         Dim searchError As Boolean = False
         'get a item put in tempData
-        'point to item 4 rows (0-3) and 2 colums (0-1)
+        'point to item 4 rows (0-3) and 2 columns (0-1)
         'did something go wrong?
 
-        DataKeeper(tempData, 4, 0, searchError)
+        DataKeeper(tempData, 2, 0, searchError)
+
+
 
         Console.Write(tempData & " ")
         Console.WriteLine(searchError)
 
+
+
+
+
     End Sub
 
-
-
+    Private Sub AboutTopMenuItem_Click(sender As Object, e As EventArgs) Handles AboutTopMenuItem.Click
+        AboutForm.Show()
+        Me.Hide()
+    End Sub
 End Class
