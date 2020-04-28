@@ -38,7 +38,12 @@
         dataArray(2, 0) = "Tuna Fish"
         dataArray(3, 0) = "BBQ Chips"
 
-        tempData = dataArray(Row, column)
+        Try
+            tempData = dataArray(Row, column)
+        Catch ex As Exception
+            errorFlag = True
+        End Try
+
         'tempData = Row.ToString("p")
         'Console.Write(tempData)
 
@@ -51,8 +56,8 @@
         'point to item 4 rows (0-3) and 2 columns (0-1)
         'did something go wrong?
 
-        DataKeeper(tempData, 2, 0, searchError)
-
+        'DataKeeper(tempData, 2, 0, searchError)
+        DataKeeper(tempData, 4, 0, searchError)
 
 
         Console.Write(tempData & " ")
