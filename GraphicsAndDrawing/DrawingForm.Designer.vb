@@ -28,8 +28,8 @@ Partial Class DrawingForm
         Me.ClearButton = New System.Windows.Forms.Button()
         Me.ExitButton = New System.Windows.Forms.Button()
         Me.TopMenuStrip = New System.Windows.Forms.MenuStrip()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TopMenuStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -39,7 +39,7 @@ Partial Class DrawingForm
         Me.DrawingPictureBox.Cursor = System.Windows.Forms.Cursors.Cross
         Me.DrawingPictureBox.Location = New System.Drawing.Point(12, 27)
         Me.DrawingPictureBox.Name = "DrawingPictureBox"
-        Me.DrawingPictureBox.Size = New System.Drawing.Size(776, 355)
+        Me.DrawingPictureBox.Size = New System.Drawing.Size(776, 358)
         Me.DrawingPictureBox.TabIndex = 0
         Me.DrawingPictureBox.TabStop = False
         '
@@ -80,17 +80,17 @@ Partial Class DrawingForm
         Me.TopMenuStrip.TabIndex = 4
         Me.TopMenuStrip.Text = "MenuStrip1"
         '
+        'FileToolStripMenuItem
+        '
+        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
+        Me.FileToolStripMenuItem.Text = "&File"
+        '
         'ContextMenuStrip1
         '
         Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
-        '
-        'FileToolStripMenuItem
-        '
-        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
-        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 12)
-        Me.FileToolStripMenuItem.Text = "&File"
         '
         'DrawingForm
         '
