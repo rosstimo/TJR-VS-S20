@@ -62,14 +62,13 @@
         Dim oldAngle As Integer
         Dim oldVi As Integer = yOffset
 
-
+        getSinWave(4, 100, 360)
 
         For angle = 0 To 360
-            'For angle = 0 To DrawingPictureBox.Width Step xOffset '(DrawingPictureBox.Width \ 360)
 
             vi = yOffset * Math.Sin((angle) * (Math.PI / 180)) + yOffset
 
-            Console.WriteLine("Angle: " & angle.ToString & "x: " & (angle * (DrawingPictureBox.Width / 360)).ToString & " Y: " & vi.ToString())
+            'Console.WriteLine("Angle: " & angle.ToString & "x: " & (angle * (DrawingPictureBox.Width / 360)).ToString & " Y: " & vi.ToString())
 
             graph.DrawLine(myPen, oldAngle * xOffset, oldVi, angle * xOffset, CInt(vi))
 
@@ -82,6 +81,26 @@
         graph.Dispose()
 
     End Sub
+
+    Sub getSinWave(numberOfPoints As Integer, yMax As Integer, xMax As Integer)
+
+        Dim y As Double
+        Dim oldX As Double
+        Dim oldY As Double
+        Dim sinWaveData(numberOfPoints, 1) As Integer
+        Dim xPerPoint As Double = xMax / numberOfPoints
+        Dim degrees As Double
+
+        For x = 0 To numberOfPoints
+            degrees = (x * xPerPoint) * (Math.PI / 180)
+            y = yMax * Math.Sin(degrees)
+            sinWaveData(x, 0) = CInt(y)
+            sinWaveData(x, 1) = CInt(x * xPerPoint)
+            Console.WriteLine("X: " & (x * xPerPoint).ToString & " Y: " & y.ToString())
+        Next
+        Console.WriteLine()
+    End Sub
+
 
 End Class
 
