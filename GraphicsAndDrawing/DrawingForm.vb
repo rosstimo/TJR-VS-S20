@@ -56,24 +56,30 @@
         '1 cycle from 0 to total width
         '
 
-        Dim vi As Double
+
+
+        Dim numberOfPoints As Integer = 20
         Dim yOffset As Integer = DrawingPictureBox.Height \ 2
-        Dim xOffset As Integer = DrawingPictureBox.Width \ 360
-        Dim oldAngle As Integer
-        Dim oldVi As Integer = yOffset
+        Dim wavePeak As Integer = yOffset * 1
 
-        getSinWave(4, 100, 360)
+        Dim waveWidthInDegrees As Integer = 360
+        Dim xOffset As Integer = DrawingPictureBox.Width \ waveWidthInDegrees
 
-        For angle = 0 To 360
+        Dim waveData(numberOfPoints, 1) As Integer
 
-            vi = yOffset * Math.Sin((angle) * (Math.PI / 180)) + yOffset
+        Dim xOld As Integer
+        Dim yOld As Integer = yOffset
+        Dim xNew As Integer
+        Dim yNew As Integer
 
-            'Console.WriteLine("Angle: " & angle.ToString & "x: " & (angle * (DrawingPictureBox.Width / 360)).ToString & " Y: " & vi.ToString())
+        waveData = getSinWave(numberOfPoints, wavePeak, DrawingPictureBox.Width)
 
-            graph.DrawLine(myPen, oldAngle * xOffset, oldVi, angle * xOffset, CInt(vi))
-
-            oldAngle = angle
-            oldVi = CInt(vi)
+        For i = LBound(waveData) To UBound(waveData)
+            xNew = waveData(i, 0)
+            yNew = waveData(i, 1) + yOffset
+            graph.DrawLine(myPen, xOld, yOld, xNew, yNew)
+            xOld = xNew
+            yOld = yNew
         Next
 
         'free up resources
@@ -82,24 +88,24 @@
 
     End Sub
 
-    Sub getSinWave(numberOfPoints As Integer, yMax As Integer, xMax As Integer)
+    Function getSinWave(numberOfPoints As Integer, yMax As Integer, xMax As Integer) As Integer(,)
 
-        Dim y As Double
-        Dim oldX As Double
-        Dim oldY As Double
         Dim sinWaveData(numberOfPoints, 1) As Integer
-        Dim xPerPoint As Double = xMax / numberOfPoints
-        Dim degrees As Double
+        Dim yCurrent As Double
+        Dim xPerPoint As Double = xMax / numberOfPoints 'xMax / 360 'numberOfPoints
+        Dim degreesPerPoint As Double = 360 / numberOfPoints
+        Dim theta As Double
 
-        For x = 0 To numberOfPoints
-            degrees = (x * xPerPoint) * (Math.PI / 180)
-            y = yMax * Math.Sin(degrees)
-            sinWaveData(x, 0) = CInt(y)
-            sinWaveData(x, 1) = CInt(x * xPerPoint)
-            Console.WriteLine("X: " & (x * xPerPoint).ToString & " Y: " & y.ToString())
+        For xCurrent = 0 To numberOfPoints
+            theta = (xCurrent * degreesPerPoint) * (Math.PI / 180)
+            yCurrent = yMax * Math.Sin(theta)
+            sinWaveData(xCurrent, 1) = CInt(yCurrent)
+            sinWaveData(xCurrent, 0) = CInt(xCurrent * xPerPoint)
+            Console.WriteLine("X: " & sinWaveData(xCurrent, 0).ToString & " Y: " & sinWaveData(xCurrent, 1).ToString())
         Next
-        Console.WriteLine()
-    End Sub
+
+        Return sinWaveData
+    End Function
 
 
 End Class
