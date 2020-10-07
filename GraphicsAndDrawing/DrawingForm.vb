@@ -8,7 +8,6 @@
         Dim scaleFactor As Integer = 100
         Dim xScale As Decimal = scaleFactor
         Dim yScale As Decimal = scaleFactor
-
         Dim xPercent, yPercent As Decimal
         Me.Text = e.X.ToString & " " & e.Y.ToString
         ReScale(xScale, yScale)
@@ -17,7 +16,6 @@
         yPercent = e.Y / yScale
         'Me.Text = xPercent.ToString("n2") & " " & yPercent.ToString("n2")
     End Sub
-
     Sub ReScale(ByRef xScale As Decimal, ByRef yScale As Decimal)
 
         xScale = DrawingPictureBox.Width / xScale
@@ -31,7 +29,7 @@
 
     End Sub
 
-    Sub drawLine() Handles GoButton.Click
+    Sub drawWave()
 
         'create graphics object
         Dim graph As Graphics
@@ -40,43 +38,23 @@
         'constructor for pen object
         Dim myPen As New Pen(Color.Black)
 
-        Dim startX As Integer = 0
-        Dim startY As Integer = DrawingPictureBox.Height \ 2
-        Dim endX As Integer = DrawingPictureBox.Width
-        Dim endY As Integer = DrawingPictureBox.Height \ 2
-
-        'draw the line
-        graph.DrawLine(myPen, startX, startY, endX, endY)
-
-        'draw sin wave??
-        'Vi = Vp*Sin(omega*time + theta) +DC
-        'Vi = Vp*Sin(n(angle per point))
-
-        'peak half height
-        '1 cycle from 0 to total width
-        '
-
-
-
         Dim numberOfPoints As Integer = 20
-        Dim yOffset As Integer = DrawingPictureBox.Height \ 2
-        Dim wavePeak As Integer = yOffset * 1
-
-        Dim waveWidthInDegrees As Integer = 360
-        Dim xOffset As Integer = DrawingPictureBox.Width \ waveWidthInDegrees
+        Dim waveWidth As Integer = DrawingPictureBox.Width
+        Dim yCenter As Integer = DrawingPictureBox.Height \ 2
+        Dim wavePeak As Integer = yCenter * 1
 
         Dim waveData(numberOfPoints, 1) As Integer
 
         Dim xOld As Integer
-        Dim yOld As Integer = yOffset
+        Dim yOld As Integer = yCenter
         Dim xNew As Integer
         Dim yNew As Integer
 
-        waveData = getSinWave(numberOfPoints, wavePeak, DrawingPictureBox.Width)
+        waveData = getSinWave(numberOfPoints, wavePeak, waveWidth)
 
         For i = LBound(waveData) To UBound(waveData)
             xNew = waveData(i, 0)
-            yNew = waveData(i, 1) + yOffset
+            yNew = waveData(i, 1) + yCenter
             graph.DrawLine(myPen, xOld, yOld, xNew, yNew)
             xOld = xNew
             yOld = yNew
@@ -107,16 +85,67 @@
         Return sinWaveData
     End Function
 
+    Sub DrawDivisions()
+        'create graphics object
+        Dim graph As Graphics
+        graph = DrawingPictureBox.CreateGraphics
+        'constructor for pen object
+        Dim myPen As New Pen(Color.Black)
 
+        Dim Top As Integer
+        Dim Bottom As Integer
+        Dim Height As Integer = DrawingPictureBox.Height
+        Dim Width As Integer = DrawingPictureBox.Width
+
+        graph.Clear(BackColor)
+
+        For Div = 0 To Width Step Width \ 10
+            graph.DrawLine(myPen, Div, 0, Div, Height)
+            For subDiv = 0 To Height Step Height \ 50
+                graph.DrawLine(myPen, Div - 5, subDiv, Div + 5, subDiv)
+            Next
+        Next
+
+        For Div = 0 To Height Step Height \ 10
+            graph.DrawLine(myPen, 0, Div, Width, Div)
+            For subDiv = 0 To Width Step Width \ 50
+                graph.DrawLine(myPen, subDiv, Div - 5, subDiv, Div + 5)
+            Next
+        Next
+
+        graph.DrawLine(myPen, Width - 1, 0, Width - 1, Height)
+        graph.DrawLine(myPen, 0, Height - 1, Width, Height - 1)
+
+        'free up resources
+        myPen.Dispose()
+        graph.Dispose()
+
+    End Sub
+
+    Private Sub DrawingForm_Load(sender As Object, e As EventArgs) Handles Me.Load
+        'FixSize()
+        'DrawingPictureBox.BackColor = Color.Blac
+    End Sub
+
+    Sub FixSize()
+        GoButton.Top = DrawingPictureBox.Top + DrawingPictureBox.Height + 10
+        GoButton.Left = DrawingPictureBox.Left
+        ClearButton.Top = DrawingPictureBox.Top + DrawingPictureBox.Height + 10
+        ClearButton.Left = DrawingPictureBox.Left + GoButton.Width + 10
+        ExitButton.Top = DrawingPictureBox.Top + DrawingPictureBox.Height + 10
+        ExitButton.Left = DrawingPictureBox.Left + GoButton.Width + 10 + ClearButton.Width + 10
+        DrawingPictureBox.Height = 50 * (CInt(Me.Height - GoButton.Height - 50) \ 50)
+        DrawingPictureBox.Width = DrawingPictureBox.Height
+    End Sub
+    Private Sub DrawingForm_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+        'Me.Height = DrawingPictureBox.Height + GoButton.Height + 30
+        ' Me.Width = Me.Height
+        DrawingPictureBox.Refresh()
+        FixSize()
+    End Sub
+
+    Private Sub GoButton_Click(sender As Object, e As EventArgs) Handles GoButton.Click
+        DrawDivisions()
+        drawWave()
+    End Sub
 End Class
-
-'vi = 0 * (180 / Math.PI)
-'vi = (Math.PI / 2) * (180 / Math.PI)
-'vi = (Math.PI) * (180 / Math.PI)
-'vi = ((3 * Math.PI) / 2) * (180 / Math.PI)
-
-'vi = 0 * (Math.PI / 180)
-'vi = 90 * (Math.PI / 180)
-'vi = 180 * (Math.PI / 180)
-'vi = 270 * (Math.PI / 180)
-'vi = 57.29578 * (Math.PI / 180)

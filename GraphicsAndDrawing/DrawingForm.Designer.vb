@@ -36,16 +36,21 @@ Partial Class DrawingForm
         '
         'DrawingPictureBox
         '
+        Me.DrawingPictureBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DrawingPictureBox.Cursor = System.Windows.Forms.Cursors.Cross
         Me.DrawingPictureBox.Location = New System.Drawing.Point(12, 27)
+        Me.DrawingPictureBox.Margin = New System.Windows.Forms.Padding(10)
         Me.DrawingPictureBox.Name = "DrawingPictureBox"
-        Me.DrawingPictureBox.Size = New System.Drawing.Size(776, 358)
+        Me.DrawingPictureBox.Size = New System.Drawing.Size(521, 482)
         Me.DrawingPictureBox.TabIndex = 0
         Me.DrawingPictureBox.TabStop = False
         '
         'GoButton
         '
-        Me.GoButton.Location = New System.Drawing.Point(12, 388)
+        Me.GoButton.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.GoButton.Location = New System.Drawing.Point(57, 450)
         Me.GoButton.Name = "GoButton"
         Me.GoButton.Size = New System.Drawing.Size(140, 50)
         Me.GoButton.TabIndex = 1
@@ -54,7 +59,8 @@ Partial Class DrawingForm
         '
         'ClearButton
         '
-        Me.ClearButton.Location = New System.Drawing.Point(158, 388)
+        Me.ClearButton.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.ClearButton.Location = New System.Drawing.Point(203, 450)
         Me.ClearButton.Name = "ClearButton"
         Me.ClearButton.Size = New System.Drawing.Size(140, 50)
         Me.ClearButton.TabIndex = 2
@@ -63,9 +69,10 @@ Partial Class DrawingForm
         '
         'ExitButton
         '
-        Me.ExitButton.Location = New System.Drawing.Point(648, 391)
+        Me.ExitButton.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.ExitButton.Location = New System.Drawing.Point(349, 450)
         Me.ExitButton.Name = "ExitButton"
-        Me.ExitButton.Size = New System.Drawing.Size(140, 47)
+        Me.ExitButton.Size = New System.Drawing.Size(140, 50)
         Me.ExitButton.TabIndex = 3
         Me.ExitButton.Text = "&Exit"
         Me.ExitButton.UseVisualStyleBackColor = True
@@ -75,8 +82,9 @@ Partial Class DrawingForm
         Me.TopMenuStrip.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.TopMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem})
         Me.TopMenuStrip.Location = New System.Drawing.Point(0, 0)
+        Me.TopMenuStrip.MinimumSize = New System.Drawing.Size(500, 0)
         Me.TopMenuStrip.Name = "TopMenuStrip"
-        Me.TopMenuStrip.Size = New System.Drawing.Size(800, 24)
+        Me.TopMenuStrip.Size = New System.Drawing.Size(548, 24)
         Me.TopMenuStrip.TabIndex = 4
         Me.TopMenuStrip.Text = "MenuStrip1"
         '
@@ -96,13 +104,14 @@ Partial Class DrawingForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(548, 574)
         Me.Controls.Add(Me.ExitButton)
         Me.Controls.Add(Me.ClearButton)
         Me.Controls.Add(Me.GoButton)
         Me.Controls.Add(Me.DrawingPictureBox)
         Me.Controls.Add(Me.TopMenuStrip)
         Me.MainMenuStrip = Me.TopMenuStrip
+        Me.MinimumSize = New System.Drawing.Size(500, 39)
         Me.Name = "DrawingForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Draw"

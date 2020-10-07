@@ -44,18 +44,21 @@
 
     Private Sub RemoveButton_Click(sender As Object, e As EventArgs) Handles RemoveButton.Click
         Dim tempItem As String
-        tempItem = MainComboBox.SelectedItem.ToString
 
-        'TODO align array with combo box
+        Try
+            tempItem = MainComboBox.SelectedItem.ToString
 
-        For Each item In userInfo
-            Console.WriteLine(item)
-        Next
+            'TODO align array with combo box
 
-        'Console.WriteLine(MainComboBox.SelectedItem.ToString)
+            For Each item In userInfo
+                Console.WriteLine(item)
+            Next
 
-        'MainComboBox.Items.Remove(MainComboBox.SelectedItem)
+            'Console.WriteLine(MainComboBox.SelectedItem.ToString)
 
+            'MainComboBox.Items.Remove(MainComboBox.SelectedItem)
+        Catch
+        End Try
     End Sub
 
 End Class
